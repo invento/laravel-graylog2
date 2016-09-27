@@ -93,7 +93,7 @@ class Graylog2 implements Graylog2Interface
         
         if (isset($this->app['additional'])) {
             $additional = $this->app['additional'];
-            forach ($additional as $key => $value) {
+            foreach ($additional as $key => $value) {
                 $message->setAdditional($key, $value);   
             }
         }
