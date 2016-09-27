@@ -15,11 +15,13 @@ class Graylog2 implements Graylog2Interface
     protected $publisher;
     protected $lastMessage;
 
-    public function __construct()
+    public function __construct($company, $user)
     {
         $this->app['host'] = config('graylog2.app.host');
         $this->app['machine'] = config('graylog2.app.machine');
         $this->app['version'] = config('graylog2.app.version');
+        $this->app['company'] = $company;
+        $this->app['user'] = $user;
 
         $this->lastMessage = null;
         if(config('graylog2.log.type') == 'graylog2') {
@@ -84,6 +86,8 @@ class Graylog2 implements Graylog2Interface
             ->setHost($this->app['host'])
             ->setAdditional('app_machine', $this->app['machine'])
             ->setAdditional('app_version', $this->app['version'])
+            ->setAdditional('company', $this->app['company'])
+            ->setAdditional('user', $this->app['user'])
             ->setLevel($level)
             ->setShortMessage($shortMessage)
             ->setTimestamp((is_null($timestamp) ? time() : $timestamp))
