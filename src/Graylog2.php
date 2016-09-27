@@ -91,7 +91,7 @@ class Graylog2 implements Graylog2Interface
             ->setShortMessage($shortMessage)
             ->setTimestamp((is_null($timestamp) ? time() : $timestamp));
         
-        if (isset($this->app['additional']) {
+        if (isset($this->app['additional'])) {
             $additional = $this->app['additional'];
             forach ($additional as $key => $value) {
                 $message->setAdditional($key, $value);   
