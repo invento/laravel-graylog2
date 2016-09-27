@@ -16,7 +16,6 @@
             "email": "info@absolute.de"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "AbsoluteSoftware\\Graylog2\\": "src"
